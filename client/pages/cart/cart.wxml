@@ -1,0 +1,71 @@
+<!--pages/cart/cart.wxml-->
+<view class="container" wx:if="{{goodsList.length === 0}}">
+   <view class="cart-empty-box">
+    <view class="cart-empty-tips">
+      <icon class="icon-cart-empty" style="font-size:80px;"></icon>
+      <view class="cart-empty-text">
+        <text>购物车是空的</text>
+      </view>
+    </view>
+    <button class="cart-btn" type="primary" bindtap="navigateToGoods">去逛逛</button> 
+  </view> 
+</view>
+<view wx:else class="cart-container">
+  <view class="cart-header">
+    <view class="cart-shop-info">
+      <text class="cart-header-text xl">已选商品</text>
+    </view>
+    <text class="cart-batch-edit" bindtap="switchEdit">{{batchEdit ? '完成' : '编辑'}}</text>
+  </view>
+
+  <view class="cart-list">
+    <view class="cart-item-wrap" wx:for="{{goodsList}}" wx:key="index" style="left: -{{item.left}}px" data-index="{{index}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE">
+      <view class="cart-item">
+        <view class="cart-check-container">
+          <icon class="{{item.selected ? 'icon-checked' : 'icon-round'}}" color="{{item.selected ? '' : 'gray'}}" bindtap="selectItem" data-index="{{index}}"></icon>
+        </view>
+        <image class="cart-item-image" src="{{item.pic}}"></image>
+        <view class="cart-info-container">
+          <text class="goods-name">{{item.name}}</text>
+          <view class="goods-price-num">
+            <view class="goods-price">
+              <text class="goods-price-unit">￥</text>
+              <text class="goods-price-text">{{item.price}}</text>
+            </view>
+            <view class="goods-num-selector">
+              <view class="num-minus {{item.num<=1? 'num-disabled' : ''}}" data-index="{{index}}" bindtap="reduceNum" >-</view>
+              <input class="num-text" type="number" data-index="{{index}}" value="{{item.num}}" bindinput="changeNumInput" ></input>
+              <view class="num-plus {{item.num>=99? 'num-disabled' : ''}}" data-index="{{index}}" bindtap="increaseNum">+</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="cart-item-delete" data-index="{{index}}" bindtap="delItem">
+        <text>删除</text>
+      </view>
+    </view>
+  </view>
+  <view class="cart-bar-container">
+    <view class="cart-check-all-container" bindtap="selectAll" >
+      <icon class="{{allSelected ? 'icon-checked' : 'icon-round'}}" color="{{allSelected ? '' : 'gray'}}" ></icon>
+      <text>全选</text>
+    </view>
+
+    <block  wx:if="{{!batchEdit}}">
+      <view class="cart-check-info-container">
+        <view class="cart-check-price-container">
+          <text>总计：</text>
+          <text class="goods-price">￥{{totalPrice}}</text>
+        </view>
+      </view> 
+      <view class="bar-buy-container {{noSelected ? 'no-selected' : ''}}">
+        <text class="text-btn">去结算</text>
+        <text class="text-small">({{totalCount}})</text>
+      </view>
+    </block>
+    <view wx:else class="bar-buy-container {{noSelected ? 'no-selected' : ''}}" bindtap="deleteSelected">
+      <text class="text-btn">删除</text>
+    </view>
+  </view>
+</view>
+

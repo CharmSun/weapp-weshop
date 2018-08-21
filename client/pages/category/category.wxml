@@ -1,0 +1,49 @@
+<!--pages/category/category.wxml-->
+<view class="container">
+  <view class="main-box">
+    <scroll-view scroll-y="true" class="side-tab">
+      <view wx:for="{{category}}" wx:key="index" data-index="{{index}}" bindtap="switchTab" class="tab-item {{curTabIdx === index ? 'tab-item-selected' : ''}}">
+        <text>{{item.name}}</text>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y="true" class="cate-box">
+      <view class="cate-title">
+        <text>饮料</text>
+      </view>
+      <view class="goods-list">
+        <view class="goods-item row" wx:for="{{goodsList}}" wx:key="id">
+          <image class="goods-image" src="{{item.pic}}"></image>
+          <view class="goods-info">
+            <view class="goods-name">
+              <text>{{item.name}}</text>
+            </view>
+            <view class="goods-desc">
+              <text>{{item.desc}}</text>
+            </view>
+            <view class="goods-price-num">
+              <view class="goods-price">
+                <text class="goods-price-unit">￥</text>
+                <text class="goods-price-text">{{item.price}}</text>
+              </view>
+              <view class="goods-num row">
+                <block wx:if="{{item.num > 0}}">
+                  <icon class="icon-minus" data-index="{{index}}" bindtap="reduceNum"></icon>
+                  <view class="number"><text>{{item.num}}</text></view>
+                </block>  
+                <icon class="icon-add" data-index="{{index}}" bindtap="increaseNum"></icon>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="footer">
+        <text>—— 我是有底线的 ——</text>
+      </view>
+    </scroll-view>
+  </view>
+  
+  <view class="float-cart-box" bindtap="navigateToCart">
+    <view class="badge" style="position:absolute;top:0;right:0;">{{cartCount}}</view>
+    <view class="row cart-icon"><icon class="icon-cart1 normal" color="white"></icon></view>
+  </view>
+</view>

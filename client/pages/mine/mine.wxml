@@ -1,0 +1,49 @@
+<!--pages/mine/mine.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+  <view class="nav-list">
+    <view class="nav-item">
+      <view class="nav-title">
+        <icon class="icon-orders"></icon>
+        <text>我的订单</text>
+      </view>
+      <view class="nav-more"><icon class="icon-right" color="gray"></icon></view>
+    </view>
+    <navigator class="nav-item" url="/pages/map/map">
+        <view class="nav-title">
+        <icon class="icon-location"></icon>
+          <text>店铺地址</text>
+        </view>
+        <view class="nav-more"><icon class="icon-right" color="gray"></icon></view>
+    </navigator>
+    <view class="nav-item" bindtap="callService">
+      <view class="nav-title">
+        <icon class="icon-service"></icon>
+        <text>联系客服</text>
+      </view>
+      <view class="nav-more"><icon class="icon-right" color="gray"></icon></view>
+    </view>
+    <view class="nav-item" bindtap="showAbout">
+      <view class="nav-title">
+        <icon class="icon-shop"></icon>
+        <text>关于我们</text>
+      </view>
+      <view class="nav-more"><icon class="icon-right" color="gray"></icon></view>
+    </view>
+  </view>
+
+  <view class="logout">
+    <button type="warn" bindtap="quit" > 退出登录</button>
+  </view>
+
+  <view class="footer">
+    <text>—— Copyright © 2018 weshop v1.0.0 ——</text>
+  </view>
+</view>

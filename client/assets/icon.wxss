@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 794693 */
+  src: url('//at.alicdn.com/t/font_794693_t1rg0cy8rcb.eot');
+  src: url('//at.alicdn.com/t/font_794693_t1rg0cy8rcb.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_794693_t1rg0cy8rcb.woff') format('woff'),
+  url('//at.alicdn.com/t/font_794693_t1rg0cy8rcb.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_794693_t1rg0cy8rcb.svg#iconfont') format('svg');
+}
+
+icon {
+  font-family: "iconfont" !important;
+  font-size: 20px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #09bb07;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 20px;
+  padding: 5rpx;
+}
+
+icon.xlarge { line-height: 35px; font-size: 35px; }
+
+icon.large { line-height: 30px; font-size: 30px; }
+
+icon.normal { line-height: 25px; font-size: 25px; }
+
+icon.small { line-height: 20px; font-size: 20px; }
+
+icon.xsmall { line-height: 15px; font-size: 15px; }
+
+icon[color="primary"] { color: #09bb07; }
+
+icon[color="white"] { color: white; }
+
+icon[color="gray"] { color: #8a8a8a; }
+
+.icon-location:before { content: "\e651"; }
+
+.icon-phone:before { content: "\e652"; }
+
+.icon-checked:before { content: "\e656"; }
+
+.icon-notification:before { content: "\e66a"; }
+
+.icon-shop:before { content: "\e676"; }
+
+.icon-right:before { content: "\e6a3"; }
+
+.icon-cart:before { content: "\e6af"; }
+
+.icon-home:before { content: "\e6b8"; }
+
+.icon-round:before { content: "\e6d7"; }
+
+.icon-add:before { content: "\e6d8"; }
+
+.icon-apps:before { content: "\e729"; }
+
+.icon-people:before { content: "\e736"; }
+
+.icon-cate:before { content: "\e619"; }
+
+.icon-service:before { content: "\e7dd"; }
+
+.icon-cart1:before { content: "\e657"; }
+
+.icon-close:before { content: "\e646"; }
+
+.icon-cart-empty:before { content: "\e8f5"; }
+
+.icon-minus:before { content: "\e69f"; }
+
+.icon-orders:before { content: "\e600"; }

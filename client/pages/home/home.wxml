@@ -1,0 +1,75 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+  <view class="notice-box row">
+    <icon class="icon-notification" color="white"></icon>
+    <text>公告： 五一大酬宾！！买了就是盆友!!! </text>
+  </view>
+  <view class="top"></view>
+  <swiper indicator-dots="true" indicator-active-color="#eee" autoplay="true" interval="3000" duration="800">
+    <block wx:for="{{banners}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="355" height="150"/>
+        </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="h-gap"></view>
+  <view class="image-box" >
+    <image src="/assets/images/hot.png" />
+  </view>
+  <view class="h-gap"></view>
+  <view class="goods-list" >
+    <view class="goods-item" wx:for="{{goodsList}}" wx:key="index">
+      <image class="goods-image" src="{{item.pic}}" />
+      <view class="goods-info">
+          <view class="goods-name"><text>{{item.name}}</text></view>
+          <view class="goods-desc"><text>{{item.desc}}</text></view>
+          <view class="goods-price-num">
+            <view class="goods-price">
+              <text class="goods-price-unit">￥</text>
+              <text class="goods-price-text">{{item.price}}</text>
+            </view>
+            <view>
+              <icon class="icon-add normal" data-index="{{index}}" bindtap="showPanel"></icon>
+            </view>
+          </view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <text>—— 我是有底线的 ——</text>
+  </view>
+  <view class="goods-buy-panel-cover" wx:if="{{panel.show}}"></view>
+  <view class="goods-buy-panel-container {{panel.show ? 'goods-buy-panel-show' : ''}}">
+    <view class="buy-panel-info-container">
+      <image class="buy-panel-image" src="{{panel.goods.pic}}"></image>
+      <view class="buy-panel-info">
+        <text class="buy-panel-name">{{panel.goods.name}}</text>
+        <view class="buy-panel-price">
+          <text>￥{{panel.goods.price}}</text>
+        </view>
+      </view>
+      <view class="buy-panel-close" bindtap="closePanel">
+        <icon class="icon-close" color="gray"></icon>
+      </view>
+    </view>
+    <view class="buy-panel-num-container">
+      <view class="buy-panel-num-text">
+        <text class="xl">购买数量：</text>
+      </view>
+      <view class="goods-num-selector">
+        <view class="num-minus {{panel.goodsNum==1? 'num-disabled' : ''}}" bindtap="reduceNum" >-</view>
+        <input class="num-text" type="number" value="{{panel.goodsNum}}" bindinput="changeNumInput" ></input>
+        <view class="num-plus {{panel.goodsNum==99? 'num-disabled' : ''}}" bindtap="increaseNum">+</view>
+      </view>
+    </view>
+    <view class="buy-panel-next" bindtap="addToCart">
+      <text>加入购物车</text>
+    </view>
+  </view>
+  <view class="float-cart-box" bindtap="navigateToCart">
+    <view class="badge" style="position:absolute;top:0;right:0;">{{cartCount}}</view>
+    <view class="row cart-icon"><icon class="icon-cart1 normal" color="white"></icon></view>
+  </view>
+</view>
+
