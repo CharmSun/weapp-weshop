@@ -1,5 +1,6 @@
 // pages/mine/mine.js
-const app = getApp()
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
+var util = require('../../utils/util.js')
 
 Page({
 
@@ -8,56 +9,47 @@ Page({
    */
   data: {
     userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    item: {
-      signinHidden: false,
-      userlocal: {
-        nickName: '',
-        nickPwd: ''
-      },
-    }
+    logged: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
+    const session = qcloud.Session.get();
+    if (session) {
+      // 本地已经有登录态
+      // 可使用本函数更新登录态
+      wx.showLoading({
+        title: '加载中',
+      });
+      qcloud.loginWithCode({
         success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
+          this.setData({ userInfo: res, logged: true });
+          wx.hideLoading();
+        },
+        fail: err => {
+          console.error(err);
+          util.showModel('登录错误', err.message);
         }
-      })
+      });
     }
   },
 
   getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+    util.showBusy('正在登录');
+
+    // 首次登录
+    qcloud.login({
+      success: res => {
+        this.setData({ userInfo: res, logged: true });
+        util.showSuccess('登录成功');
+      },
+      fail: err => {
+        console.error(err);
+        util.showModel('登录错误', err.message);
+      }
+    });
   },
 
   callService: function () {
@@ -92,27 +84,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
   
   }
 })

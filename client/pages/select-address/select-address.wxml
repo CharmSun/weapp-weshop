@@ -1,0 +1,22 @@
+<!--pages/select-address/select-address.wxml-->
+<view class="container">
+  <view class="list-title">地址管理</view>
+  <view class="address-list">
+    <view class="address-item" wx:for-items="{{addressList}}" wx:key="{{index}}">
+      <view class="left-box" bindtap="selectTap" data-id="{{item.id}}">
+        <view class="check-container">
+          <icon class="{{item.isDefault ? 'icon-checked' : 'icon-round'}}" color="{{item.isDefault ? '' : 'gray'}}" ></icon>
+        </view>
+        <view class="address-box">
+          <view class="name-tel">{{item.name}} {{item.mobile}}</view>
+          <view class="address-text">{{item.address}}</view>
+        </view>
+      </view>
+      <icon class="icon-edit" bindtap="editAddess" data-id="{{item.id}}"></icon>
+    </view>
+  </view>
+  <view class="add-btn" bindtap="addAddress">
+    <icon class="icon-add1"></icon>
+    <text>新增收货地址</text>
+  </view>
+</view>

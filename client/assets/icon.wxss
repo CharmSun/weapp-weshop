@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 794693 */
-  src: url('//at.alicdn.com/t/font_794693_t1rg0cy8rcb.eot');
-  src: url('//at.alicdn.com/t/font_794693_t1rg0cy8rcb.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_794693_t1rg0cy8rcb.woff') format('woff'),
-  url('//at.alicdn.com/t/font_794693_t1rg0cy8rcb.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_794693_t1rg0cy8rcb.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_794693_xfxht52bnw.eot');
+  src: url('//at.alicdn.com/t/font_794693_xfxht52bnw.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_794693_xfxht52bnw.woff') format('woff'),
+  url('//at.alicdn.com/t/font_794693_xfxht52bnw.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_794693_xfxht52bnw.svg#iconfont') format('svg');
 }
 
 icon {
@@ -36,6 +36,7 @@ icon[color="primary"] { color: #09bb07; }
 icon[color="white"] { color: white; }
 
 icon[color="gray"] { color: #8a8a8a; }
+
 
 .icon-location:before { content: "\e651"; }
 
@@ -73,4 +74,10 @@ icon[color="gray"] { color: #8a8a8a; }
 
 .icon-minus:before { content: "\e69f"; }
 
+.icon-add1:before { content: "\e60f"; }
+
+.icon-tick:before { content: "\e66e"; }
+
 .icon-orders:before { content: "\e600"; }
+
+.icon-edit:before { content: "\e601"; }

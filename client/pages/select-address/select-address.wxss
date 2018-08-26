@@ -1,0 +1,55 @@
+/* pages/select-address/select-address.wxss */
+.list-title {
+  height:30px;
+  line-height:30px;
+  padding-left:20rpx;
+  border-bottom:1px solid #ededed;
+  font-size: 32rpx;
+}
+
+.address-list {
+  width:100%;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.address-item {
+  padding: 20rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom:1px solid #ededed;
+}
+.address-item .left-box {
+  flex:1;
+  display: flex;
+  align-items: center;
+}
+.address-item .address-box {
+  margin-left: 30rpx;
+  line-height: 2;
+}
+
+.address-box .name-tel {
+  font-size: 32rpx;
+}
+.address-box .address-text {
+  color:#888888;
+}
+
+.add-btn{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding: 20rpx;
+  background-color:#fff;
+  border-top: 1rpx solid #eee;
+  display: flex;
+  align-items: center;
+}
+
+.add-btn text {
+  font-size: 32rpx;
+  padding-left: 20rpx;
+}

@@ -4,7 +4,10 @@
     "pages/category/category",
     "pages/cart/cart",
     "pages/mine/mine",
-    "pages/map/map"
+    "pages/map/map",
+    "pages/to-pay/to-pay",
+    "pages/select-address/select-address",
+    "pages/add-address/add-address"
   ],
   "window": {
     "navigationBarBackgroundColor": "#09bb07",

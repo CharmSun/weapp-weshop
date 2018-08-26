@@ -1,0 +1,156 @@
+/* pages/to-pay/to-pay.wxss */
+.address-box {
+  width: 100%;
+  margin: 20rpx 0;
+  background-color: #fff;
+  background-size: 750rpx auto;
+}
+
+.add-address, .show-address {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+}
+
+.add-text {
+  display: flex;
+  align-items: center;
+}
+
+.add-text text {
+  font-size: 32rpx;
+  margin-left: 32rpx;
+}
+
+.addr-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 32rpx;
+}
+.addr-info .addr-text{
+  font-size: 36rpx;
+  color: #000;
+}
+.addr-info .name-tel{
+  font-size: 32rpx;
+  color: #888;
+}
+
+
+.goods-list {
+  width:100%;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.list-title {
+  height:30px;
+  line-height:30px;
+  padding-left:20rpx;
+  border-bottom:1px solid #ededed;
+}
+
+.list-title text {
+  font-size: 32rpx;
+  color:#626e7a;
+}
+
+.goods-item {
+  margin: 0 20rpx;
+  padding: 20rpx 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom:1px solid #ededed;
+}
+
+.goods-item-image {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+}
+
+.goods-info-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20rpx;
+  height: 180rpx;
+}
+
+.goods-name {
+  font-size: 32rpx;
+}
+
+.goods-price-num {
+  display: flex;
+  justify-content: space-between;
+}
+
+.goods-price {
+  font-size: 36rpx;
+  color: #ff6200;
+}
+.goods-num {
+  font-size: 32rpx;
+}
+
+.note-box {
+  background-color:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:24rpx 30rpx;
+  border-top:1rpx solid #eee;
+  border-bottom:1rpx solid #eee;
+}
+
+.note-text input {
+  width: 510rpx;
+}
+
+.total-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  width: 100%;
+  background: #fefefe;
+  border-top: 1px solid #dcdcdc;
+  border-bottom: 1px solid #eee;
+  z-index: 100;
+}
+
+.left-price {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 30rpx;
+}
+
+.left-price text {
+  font-size: 36rpx;
+}
+
+.left-price .total-price {
+  color: #ff6200;
+}
+
+.to-pay-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 250rpx;
+  background-color: #f3514f;
+  color: #fff;
+  font-size: 36rpx;
+}

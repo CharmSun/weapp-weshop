@@ -12,5 +12,32 @@
 	},
 	"appid": "wx4e373d8d46bd5f6b",
 	"projectname": "weapp-weshop",
-	"condition": {}
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "test",
+					"pathName": "pages/to-pay/to-pay",
+					"query": ""
+				}
+			]
+		}
+	}
 }

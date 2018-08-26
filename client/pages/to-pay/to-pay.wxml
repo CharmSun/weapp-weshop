@@ -1,0 +1,52 @@
+<!--pages/to-pay/to-pay.wxml-->
+<container>
+  <view class="address-box">
+    <view class="add-address" hidden="{{!!curAddress}}" bindtap="addAddress">
+      <view class="add-text">
+        <icon class="icon-add"></icon>
+        <text>新增收货地址</text>
+      </view>
+      <view>
+        <icon class="icon-right" color="gray"></icon>
+      </view>
+    </view>
+    <view class="show-address" bindtap="selectAddress" hidden="{{!curAddress}}">
+      <view class="addr-info row">
+        <text class="addr-text">{{curAddress.address}}</text>
+        <text class="name-tel">{{curAddress.name}}  {{curAddress.mobile}}</text>
+      </view>  
+      <view>
+        <icon class="icon-right" color="gray"></icon>
+      </view>
+    </view>
+  </view>
+
+  <view class="goods-list">
+    <view class="list-title">商品列表</view>
+    <view class="goods-item" wx:for-items="{{goodsList}}" wx:key="{{index}}">
+      <image class="goods-item-image" src="{{item.pic}}"></image>
+      <view class="goods-info-container">
+        <text class="goods-name">{{item.name}}</text>
+        <view class="goods-price-num">
+          <text class="goods-price">￥{{item.price}}</text>
+          <text class="goods-num">x {{item.num}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="note-box">
+    <view class="note-label">备注</view>
+    <view class="note-text">
+      <input name="note" type="text" placeholder="如需备注请输入" />
+    </view>
+  </view>
+
+  <view class="total-box">
+    <view class="left-price">
+      <text>合计：</text>
+      <text class="total-price">¥ 100.00</text>
+    </view>
+    <view class="to-pay-btn" >提交订单</view>
+  </view>
+</container>

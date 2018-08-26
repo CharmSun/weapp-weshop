@@ -230,4 +230,10 @@ Page({
     });
   },
 
+  toPay: function() {
+    wx.navigateTo({
+      url: '/pages/to-pay/to-pay'
+    });
+  }
+
 })

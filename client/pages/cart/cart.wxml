@@ -58,7 +58,7 @@
           <text class="goods-price">￥{{totalPrice}}</text>
         </view>
       </view> 
-      <view class="bar-buy-container {{noSelected ? 'no-selected' : ''}}">
+      <view class="bar-buy-container {{noSelected ? 'no-selected' : ''}}" bindtap="toPay">
         <text class="text-btn">去结算</text>
         <text class="text-small">({{totalCount}})</text>
       </view>

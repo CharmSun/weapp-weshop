@@ -42,10 +42,10 @@
   margin-left: 32rpx;
 }
 
-.logout {
+.log-btn {
   margin-top: 50rpx;
 }
 
-.logout button {
+.log-btn button {
   width: 600rpx;
 }
