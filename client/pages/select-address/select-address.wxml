@@ -3,7 +3,7 @@
   <view class="list-title">地址管理</view>
   <view class="address-list">
     <view class="address-item" wx:for-items="{{addressList}}" wx:key="{{index}}">
-      <view class="left-box" bindtap="selectTap" data-id="{{item.id}}">
+      <view class="left-box" bindtap="selectTap" data-id="{{item.id}}" data-is-default="{{item.isDefault}}">
         <view class="check-container">
           <icon class="{{item.isDefault ? 'icon-checked' : 'icon-round'}}" color="{{item.isDefault ? '' : 'gray'}}" ></icon>
         </view>

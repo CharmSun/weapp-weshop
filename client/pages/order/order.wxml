@@ -1,0 +1,39 @@
+<!--pages/order/order.wxml-->
+<wxs module="m1">
+var getStatusText = function(status) {
+  switch(status) {
+    case 0:
+      return '未付款';
+    case 1:
+      return '已付款';
+    case 2:
+      return '已配送';
+    case 3:
+      return '已完成';  
+    default:
+      return '已取消';    
+  }
+}
+
+var jsonParse = function(jsonStr) {
+  return JSON.parse(jsonStr);
+}
+
+module.exports.getStatusText = getStatusText;
+module.exports.jsonParse = jsonParse;
+</wxs>
+
+<container>
+  <view class="page-title">订单列表</view>
+  <view class="order-list">
+    <view class="order" wx:for-items="{{orderList}}" wx:key="{{id}}" wx:for-item="order">
+      <view class="order-time">{{order.create_time}}</view>
+      <scroll-view class="order-items" scroll-x="true" >
+        <block wx:key="{{index}}" wx:for-items="{{m1.jsonParse(order.order_items)}}" wx:for-item="goods">
+          <image class="goods-item-image" src="{{goods.pic}}"></image>
+        </block>
+      </scroll-view> 
+      <view class="order-status">订单状态： {{m1.getStatusText(order.status)}}</view>
+    </view>
+  </view>
+</container>

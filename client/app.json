@@ -7,7 +7,8 @@
     "pages/map/map",
     "pages/to-pay/to-pay",
     "pages/select-address/select-address",
-    "pages/add-address/add-address"
+    "pages/add-address/add-address",
+    "pages/order/order"
   ],
   "window": {
     "navigationBarBackgroundColor": "#09bb07",

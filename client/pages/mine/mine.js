@@ -52,6 +52,34 @@ Page({
     });
   },
 
+  toOrders: function () {
+    const session = qcloud.Session.get();
+    if (!session) {
+      wx.showToast({
+        icon: 'none',
+        title: '请先登录'
+      });
+      return;
+    }
+    wx.navigateTo({
+      url: '/pages/order/order',
+    })
+  },
+
+  toAddress: function () {
+    const session = qcloud.Session.get();
+    if(!session) {
+      wx.showToast({
+        icon: 'none',
+        title: '请先登录'
+      });
+      return;
+    }
+    wx.navigateTo({
+      url: '/pages/select-address/select-address',
+    })
+  },
+
   callService: function () {
     wx.makePhoneCall({
       phoneNumber: '13400000000' 

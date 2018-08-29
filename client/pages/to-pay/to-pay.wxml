@@ -38,15 +38,15 @@
   <view class="note-box">
     <view class="note-label">备注</view>
     <view class="note-text">
-      <input name="note" type="text" placeholder="如需备注请输入" />
+      <input name="note" type="text" bindinput="bindInput" placeholder="如需备注请输入" />
     </view>
   </view>
 
   <view class="total-box">
     <view class="left-price">
       <text>合计：</text>
-      <text class="total-price">¥ 100.00</text>
+      <text class="total-price">¥ {{totalPrice}}</text>
     </view>
-    <view class="to-pay-btn" >提交订单</view>
+    <view class="to-pay-btn" bindtap="createOrder">提交订单</view>
   </view>
 </container>

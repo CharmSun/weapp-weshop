@@ -6,7 +6,7 @@
   </view>
 
   <view class="nav-list">
-    <view class="nav-item">
+    <view class="nav-item" bindtap="toOrders">
       <view class="nav-title">
         <icon class="icon-orders"></icon>
         <text>我的订单</text>
@@ -15,7 +15,7 @@
         <icon class="icon-right" color="gray"></icon>
       </view>
     </view>
-    <navigator class="nav-item" url="/pages/select-address/select-address">
+    <view class="nav-item" bindtap="toAddress">
       <view class="nav-title">
         <icon class="icon-cate"></icon>
         <text>收货地址</text>
@@ -23,7 +23,7 @@
       <view class="nav-more">
         <icon class="icon-right" color="gray"></icon>
       </view>
-    </navigator>
+    </view>
     <navigator class="nav-item" url="/pages/map/map">
       <view class="nav-title">
         <icon class="icon-location"></icon>

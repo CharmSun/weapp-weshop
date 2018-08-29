@@ -32,11 +32,15 @@ Page({
    */
   onShow: function () {
     var cartInfo = wx.getStorageSync('cartInfo');
-    for (var i = 0; i < cartInfo.list.length; i++) {
-      cartInfo.list[i].left = 0;
+    var list = [];
+    if (cartInfo && cartInfo.list){
+      list = cartInfo.list;
+    }
+    for (var i = 0; i < list.length; i++) {
+      list[i].left = 0;
     }
     this.setData({
-      goodsList: cartInfo.list
+      goodsList: list
     });
     this.setTotal();
   },

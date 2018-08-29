@@ -1,31 +1,48 @@
 // pages/select-address/select-address.js
+var qcloud = require('../../vendor/wafer2-client-sdk/index');
+var config = require('../../config');
+var util = require('../../utils/util.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    addressList: [
-      {
-        id: 1231,
-        name: "苏超男",
-        mobile: "12312341234",
-        address: "五道口清华科技园",
-        isDefault: true
-      },
-      {
-        id: 123,
-        name: "苏超男",
-        mobile: "12312341234",
-        address: "五道口清华科技园",
-        isDefault: false
-      },
-    ]
+    addressList: []
   },
 
   selectTap: function (e) {
     var id = e.currentTarget.dataset.id;
-    wx.navigateBack();
+    var isDefault = e.currentTarget.dataset.isDefault;
+    if (isDefault) {
+      return;
+    }
+    const session = qcloud.Session.get();
+    if (!session) {
+      wx.reLaunch({
+        url: '/pages/mine/mine'
+      });
+    }
+    
+    qcloud.request({
+      method: 'post',
+      login: true,
+      url: `${config.baseUrl}/address/setDefault`,
+      data: {
+        open_id: session.userinfo.openId,
+        id 
+      },
+      success: res => {
+        if (res.data.code === 0) {
+          wx.navigateBack();
+        }
+      },
+      fail: error => {
+        util.showModel('请求失败', error);
+        console.log('request fail', error);
+      }
+    });
   },
 
   addAddress: function () {
@@ -58,7 +75,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    const session = qcloud.Session.get();
+    if (!session) {
+      wx.reLaunch({
+        url: '/pages/mine/mine'
+      });
+    }
+    util.showBusy('加载中...');
+    qcloud.request({
+      login: true,
+      url: `${config.baseUrl}/address/getList`,
+      data: {
+        open_id: session.userinfo.openId
+      },
+      success: res => {
+        util.showSuccess('加载完成');
+        if (res.data.code === 0) {
+          this.setData({ addressList: res.data.data });
+        }
+      },
+      fail: error => {
+        util.showModel('请求失败', error);
+        console.log('request fail', error);
+      }
+    });
   },
 
   /**

@@ -40,4 +40,20 @@ router.get('/cate', controllers.cate.cateList);
 
 router.get('/cate/goodsList', controllers.cate.goodsList);
 
+router.get('/address/getList', controllers.address.getAddressList);
+
+router.get('/address/getDefault', controllers.address.getDefaultAddress);
+
+router.post('/address/setDefault', controllers.address.setDefaultAddress);
+
+router.post('/address/save', controllers.address.saveAddressData);
+
+router.get('/address/get', controllers.address.getAddressById);
+
+router.post('/address/del', controllers.address.deleteAddress);
+
+router.post('/order/create', controllers.order.createOrder);
+
+router.get('/order/list', controllers.order.getOrderList);
+
 module.exports = router

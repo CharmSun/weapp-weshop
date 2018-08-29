@@ -34,7 +34,7 @@
 				{
 					"id": 0,
 					"name": "test",
-					"pathName": "pages/to-pay/to-pay",
+					"pathName": "pages/order/order",
 					"query": ""
 				}
 			]
